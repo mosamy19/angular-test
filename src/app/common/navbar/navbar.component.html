@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-3">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      Angular Test
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/cart">
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            <!-- *ngIf="cart" -->
+            <span class="badge badge-warning badge-pill" *ngIf="cart.length > 0">
+              {{ cart.length }}
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

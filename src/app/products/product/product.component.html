@@ -1,0 +1,23 @@
+<div class="card mb-3">
+  <img [src]="product.imageUrl" class="card-img-top">
+  <div class="card-body">
+    <div class="d-flex ">
+      <p class="card-title mb-0">{{product.title}}</p>
+      <h5 class="text-warning ml-1 mb-0">{{product.price | currency}}</h5>
+    </div>
+    <p class="text-danger mb-0 text-right" *ngIf="product.quantity < 1">
+      Out Of Stock!
+    </p>
+    <small class="card-text text-muted">{{product.description}}</small><br />
+    <div class="mt-3">
+      <!-- <a href="#" class="btn btn-outline-primary">Details</a> -->
+      <button *ngIf="!product.addedToCart" (click)="addToCart()" class="btn d-block w-100"
+        [disabled]="product.quantity < 1" [ngClass]="product.quantity > 0? 'btn-warning': 'btn-secondary'">
+        Add To
+        Cart</button>
+      <button class="btn btn-success d-block w-100" *ngIf="product.addedToCart" routerLink="/cart">
+        View Cart
+      </button>
+    </div>
+  </div>
+</div>

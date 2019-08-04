@@ -1,0 +1,21 @@
+<ul class="list-group" *ngIf="cart.length">
+  <li appBackgroundColor class="list-group-item" *ngFor="let item of cart; let i = index">
+    <app-cart-item [cartItem]="item" (removeCartItem)="removeCartItem(item, i)">
+    </app-cart-item>
+  </li>
+  <li class="list-group-item">
+    <div class="d-flex justify-content-between">
+      <span>
+        Total
+      </span>
+      <span class="font-weight-bold">
+        {{calculateTotal() | currency}}
+      </span>
+    </div>
+  </li>
+</ul>
+
+<div *ngIf="cart.length < 1">
+  <h2 class="text-center">Your cart is empty!</h2>
+  <p class="text-center">Go <a routerLink="/">Home</a> to Add Some Products First!</p>
+</div>

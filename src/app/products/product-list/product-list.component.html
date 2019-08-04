@@ -1,0 +1,6 @@
+<h2 class="text-center mb-3" #appTitle> </h2>
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-4" *ngFor="let product of products">
+    <app-product [product]="product"></app-product>
+  </div>
+</div>
